@@ -4,32 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgriTrust · growing innovation</title>
-  <!-- Google Fonts for a professional, modern look -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons (farming/plants) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ---------- RESET & GLOBAL ---------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0b1a0b; /* deep black-green */
+      background-color: #0b1a0b;
       color: #ffffff;
       line-height: 1.5;
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
     }
-    /* plant background overlay – subtle leafy pattern */
     body::before {
       content: "";
       position: fixed;
@@ -40,12 +30,7 @@
       pointer-events: none;
       z-index: 0;
     }
-    /* main content sits above the pattern */
-    .page-content {
-      position: relative;
-      z-index: 2;
-    }
-    /* ---------- COLOR VARIABLES ---------- */
+    .page-content { position: relative; z-index: 2; }
     :root {
       --black: #0a1a0a;
       --deep-green: #1e3a1e;
@@ -56,38 +41,15 @@
       --off-white: #e0f0e0;
       --shadow: 0 15px 30px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(76, 175, 80, 0.2);
     }
-
-    /* ---------- TYPOGRAPHY & UTILS ---------- */
-    h1, h2, h3 {
-      font-weight: 600;
-      letter-spacing: -0.02em;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
     .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--white);
-      position: relative;
+      font-size: 2.5rem; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 12px;
+      color: var(--white); position: relative;
     }
-    .section-title i {
-      color: var(--bright-green);
-      font-size: 2rem;
-    }
-    .section-sub {
-      font-size: 1.2rem;
-      color: var(--light-green);
-      max-width: 700px;
-      margin-bottom: 3rem;
-    }
-
-    /* ---------- ANIMATIONS ---------- */
+    .section-title i { color: var(--bright-green); font-size: 2rem; }
+    .section-sub { font-size: 1.2rem; color: var(--light-green); max-width: 700px; margin-bottom: 3rem; }
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -95,11 +57,6 @@
     @keyframes scaleIn {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes growLeaf {
-      0% { transform: scale(0.6) rotate(-10deg); opacity: 0; }
-      60% { transform: scale(1.1) rotate(2deg); opacity: 1; }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
     }
     @keyframes gentleSway {
       0% { transform: rotate(-3deg); }
@@ -116,309 +73,213 @@
       50% { transform: translateY(-8px) rotate(4deg); }
       100% { transform: translateY(0) rotate(0deg); }
     }
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-60px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    /* ---------- HERO / BIG ANIMATION ---------- */
     .hero {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
+      min-height: 90vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; padding: 2rem; position: relative;
     }
     .hero-logo {
       font-size: clamp(4rem, 18vw, 12rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1;
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1;
       color: #ffffff;
       animation: heroGlow 2s infinite alternate, scaleIn 1.2s ease-out;
       text-shadow: 0 0 30px rgba(76, 175, 80, 0.7);
-      display: inline-block;
-      position: relative;
-      z-index: 5;
+      display: inline-block; position: relative; z-index: 5;
     }
     .hero-logo .accent {
       color: var(--bright-green);
       text-shadow: 0 0 30px #2e7d32, 0 0 60px #4caf50;
     }
     .hero-tagline {
-      font-size: 1.5rem;
-      color: var(--light-green);
-      margin-top: 1rem;
+      font-size: 1.5rem; color: var(--light-green); margin-top: 1rem;
       animation: fadeInUp 1s ease-out 0.5s both;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      font-weight: 400;
+      letter-spacing: 0.3em; text-transform: uppercase; font-weight: 400;
     }
     .hero-sub {
-      max-width: 700px;
-      margin: 2rem auto 0;
-      font-size: 1.2rem;
-      color: var(--off-white);
-      animation: fadeInUp 1s ease-out 0.8s both;
-      background: rgba(10, 26, 10, 0.5);
-      padding: 1rem 2rem;
-      border-radius: 60px;
-      backdrop-filter: blur(4px);
+      max-width: 700px; margin: 2rem auto 0; font-size: 1.2rem;
+      color: var(--off-white); animation: fadeInUp 1s ease-out 0.8s both;
+      background: rgba(10, 26, 10, 0.5); padding: 1rem 2rem;
+      border-radius: 60px; backdrop-filter: blur(4px);
       border: 1px solid rgba(76, 175, 80, 0.3);
     }
-    /* floating plant icons in hero */
-    .hero-plants {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
+    .hero-plants { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
     .hero-plants i {
-      position: absolute;
-      color: var(--leaf-green);
-      opacity: 0.4;
-      font-size: 3rem;
-      animation: floatLeaf 8s infinite ease-in-out;
+      position: absolute; color: var(--leaf-green); opacity: 0.4;
+      font-size: 3rem; animation: floatLeaf 8s infinite ease-in-out;
     }
     .hero-plants i:nth-child(1) { top: 15%; left: 10%; font-size: 5rem; animation-delay: 0s; }
     .hero-plants i:nth-child(2) { bottom: 20%; right: 8%; font-size: 6rem; animation-delay: 1.5s; }
     .hero-plants i:nth-child(3) { top: 30%; right: 15%; font-size: 4rem; animation-delay: 0.8s; }
     .hero-plants i:nth-child(4) { bottom: 35%; left: 18%; font-size: 7rem; animation-delay: 2.2s; }
     .hero-plants i:nth-child(5) { top: 70%; left: 45%; font-size: 3.5rem; animation-delay: 1.1s; }
-
-    /* ---------- NAVIGATION ---------- */
     .nav-bar {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      padding: 1rem 2rem;
-      background: rgba(10, 26, 10, 0.8);
+      display: flex; justify-content: center; gap: 2.5rem;
+      padding: 1rem 2rem; background: rgba(10, 26, 10, 0.8);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--leaf-green);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      flex-wrap: wrap;
+      position: sticky; top: 0; z-index: 20; flex-wrap: wrap;
       animation: fadeInUp 0.8s ease-out;
     }
     .nav-bar a {
-      color: var(--off-white);
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--off-white); text-decoration: none; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
       transition: color 0.2s, transform 0.2s;
-      padding: 0.5rem 0;
-      border-bottom: 2px solid transparent;
+      padding: 0.5rem 0; border-bottom: 2px solid transparent;
+      cursor: pointer;
     }
-    .nav-bar a i {
-      color: var(--bright-green);
-      transition: transform 0.2s;
+    .nav-bar a i { color: var(--bright-green); transition: transform 0.2s; }
+    .nav-bar a:hover { color: var(--white); transform: translateY(-2px); border-bottom-color: var(--bright-green); }
+    .nav-bar a:hover i { transform: scale(1.2); }
+    .page-header {
+      padding: 4rem 1rem 2rem; text-align: center;
+      border-bottom: 1px solid var(--leaf-green);
+      margin-bottom: 2rem;
     }
-    .nav-bar a:hover {
+    .page-header h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      display: flex; align-items: center; justify-content: center; gap: 16px;
       color: var(--white);
-      transform: translateY(-2px);
-      border-bottom-color: var(--bright-green);
     }
-    .nav-bar a:hover i {
-      transform: scale(1.2);
+    .page-header h1 i { color: var(--bright-green); }
+    .page-header p {
+      color: var(--light-green); font-size: 1.2rem;
+      max-width: 700px; margin: 1rem auto 0;
     }
-
-    /* ---------- CARDS / MODULES ---------- */
+    .back-link {
+      display: inline-block; margin-top: 1.5rem;
+      color: var(--bright-green); text-decoration: none;
+      border: 1px solid var(--bright-green); padding: 0.5rem 1.5rem;
+      border-radius: 40px; transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .back-link:hover { background: var(--bright-green); color: var(--black); }
     .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0 4rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; margin: 3rem 0 4rem;
     }
     .module-card {
       background: linear-gradient(145deg, #112211, #0a1a0a);
-      border-radius: 28px;
-      padding: 2rem 1.8rem;
+      border-radius: 28px; padding: 2rem 1.8rem;
       border: 1px solid rgba(76, 175, 80, 0.3);
       box-shadow: var(--shadow);
       transition: transform 0.35s ease, border-color 0.3s, box-shadow 0.4s;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       animation: fadeInUp 0.8s ease-out both;
-      display: flex;
-      flex-direction: column;
+      display: flex; flex-direction: column;
     }
-    .module-card:nth-child(1) { animation-delay: 0.1s; }
-    .module-card:nth-child(2) { animation-delay: 0.25s; }
-    .module-card:nth-child(3) { animation-delay: 0.4s; }
-    .module-card:nth-child(4) { animation-delay: 0.55s; }
     .module-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--bright-green);
+      transform: translateY(-8px); border-color: var(--bright-green);
       box-shadow: 0 25px 40px -12px #1e3a1e, 0 0 0 1px #4caf50;
     }
     .module-card::after {
-      content: "🌿";
-      position: absolute;
-      bottom: -10px;
-      right: -10px;
-      font-size: 7rem;
-      opacity: 0.08;
-      transform: rotate(15deg);
-      pointer-events: none;
+      content: "🌿"; position: absolute; bottom: -10px; right: -10px;
+      font-size: 7rem; opacity: 0.08; transform: rotate(15deg); pointer-events: none;
     }
     .module-icon {
-      font-size: 2.8rem;
-      color: var(--bright-green);
-      margin-bottom: 1.2rem;
-      display: inline-block;
+      font-size: 2.8rem; color: var(--bright-green);
+      margin-bottom: 1.2rem; display: inline-block;
       animation: gentleSway 5s infinite;
     }
-    .module-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--white);
-    }
-    .module-card p {
-      color: var(--light-green);
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      flex: 1;
-    }
+    .module-card h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--white); }
+    .module-card p { color: var(--light-green); font-size: 1rem; margin-bottom: 1.5rem; flex: 1; }
     .module-badge {
-      display: inline-block;
-      background: rgba(76, 175, 80, 0.2);
-      border: 1px solid var(--bright-green);
-      color: var(--bright-green);
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      display: inline-block; background: rgba(76, 175, 80, 0.2);
+      border: 1px solid var(--bright-green); color: var(--bright-green);
+      padding: 0.3rem 1rem; border-radius: 40px;
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px;
       align-self: flex-start;
     }
-
-    /* ---------- DATABASE TABLE (farmer records) ---------- */
     .db-section {
-      background: #0f1f0f;
-      border-radius: 40px;
-      padding: 3rem 2rem;
-      margin: 4rem 0;
+      background: #0f1f0f; border-radius: 40px;
+      padding: 3rem 2rem; margin: 4rem 0;
       border: 1px solid #2e7d32;
       box-shadow: inset 0 0 40px rgba(0,0,0,0.6), var(--shadow);
     }
     .db-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; margin-bottom: 2rem;
     }
-    .db-header h2 {
-      font-size: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .db-header h2 i {
-      color: var(--bright-green);
-    }
+    .db-header h2 { font-size: 2rem; display: flex; align-items: center; gap: 12px; }
+    .db-header h2 i { color: var(--bright-green); }
     .record-count {
-      background: var(--leaf-green);
-      padding: 0.4rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--white);
+      background: var(--leaf-green); padding: 0.4rem 1.2rem;
+      border-radius: 30px; font-weight: 600; font-size: 0.9rem; color: var(--white);
     }
-    .table-wrapper {
-      overflow-x: auto;
-      border-radius: 24px;
-      border: 1px solid #2e7d32;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-      min-width: 700px;
-    }
+    .table-wrapper { overflow-x: auto; border-radius: 24px; border: 1px solid #2e7d32; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 700px; }
     th {
-      background: #1e3a1e;
-      color: var(--light-green);
-      text-align: left;
-      padding: 1.2rem 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
+      background: #1e3a1e; color: var(--light-green);
+      text-align: left; padding: 1.2rem 1.5rem;
+      font-weight: 600; letter-spacing: 0.5px;
       border-bottom: 2px solid var(--bright-green);
     }
-    td {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #1e3a1e;
-      color: var(--off-white);
-    }
-    tr:last-child td {
-      border-bottom: none;
-    }
-    tr {
-      transition: background 0.2s;
-    }
-    tr:hover {
-      background: rgba(76, 175, 80, 0.08);
-    }
+    td { padding: 1rem 1.5rem; border-bottom: 1px solid #1e3a1e; color: var(--off-white); }
+    tr:last-child td { border-bottom: none; }
+    tr { transition: background 0.2s; }
+    tr:hover { background: rgba(76, 175, 80, 0.08); }
     .status-badge {
-      background: #1e3a1e;
-      color: var(--bright-green);
-      padding: 0.2rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1px solid #4caf50;
+      background: #1e3a1e; color: var(--bright-green);
+      padding: 0.2rem 0.8rem; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 600; border: 1px solid #4caf50;
     }
-
-    /* ---------- FOOTER ---------- */
+    .form-card {
+      background: #0f1f0f; border-radius: 32px; padding: 2.5rem;
+      border: 1px solid #2e7d32; margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+    .form-card h2 { font-size: 1.8rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
+    .form-card h2 i { color: var(--bright-green); }
+    .form-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-weight: 500; color: var(--light-green); font-size: 0.9rem; }
+    .form-group input, .form-group select {
+      padding: 0.8rem 1rem; border-radius: 16px;
+      background: #0a1a0a; border: 1px solid #2e7d32;
+      color: var(--white); font-family: inherit; font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none; border-color: var(--bright-green);
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25);
+    }
+    .btn-primary {
+      background: var(--bright-green); color: var(--black);
+      border: none; padding: 0.9rem 2.2rem;
+      border-radius: 40px; font-weight: 700; font-size: 1rem;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 1.5rem;
+    }
+    .btn-primary:hover { background: #66bb6a; transform: scale(1.02); }
+    .btn-primary:active { transform: scale(0.98); }
     footer {
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      border-top: 1px solid #1e3a1e;
-      margin-top: 3rem;
-      color: var(--light-green);
-      font-size: 0.95rem;
+      text-align: center; padding: 3rem 1rem 2rem;
+      border-top: 1px solid #1e3a1e; margin-top: 3rem;
+      color: var(--light-green); font-size: 0.95rem;
     }
-    footer i {
-      color: var(--bright-green);
-      margin: 0 4px;
-    }
-
-    /* ---------- RESPONSIVE ---------- */
+    footer i { color: var(--bright-green); margin: 0 4px; }
     @media (max-width: 768px) {
       .container { padding: 0 1.2rem; }
-      .section-title { font-size: 2rem; }
       .hero-logo { font-size: clamp(3rem, 15vw, 7rem); }
       .hero-tagline { font-size: 1rem; letter-spacing: 0.15em; }
       .nav-bar { gap: 1.2rem; }
-      .module-card { padding: 1.6rem; }
     }
-
-    /* extra plant decoration on sections */
     .leaf-divider {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      font-size: 2rem;
-      color: var(--leaf-green);
-      opacity: 0.5;
-      margin: 1rem 0 2rem;
+      display: flex; justify-content: center; gap: 2rem;
+      font-size: 2rem; color: var(--leaf-green);
+      opacity: 0.5; margin: 1rem 0 2rem;
       animation: fadeInUp 1s;
     }
-    .leaf-divider i {
-      animation: gentleSway 6s infinite;
-    }
+    .leaf-divider i { animation: gentleSway 6s infinite; }
   </style>
 </head>
 <body>
   <div class="page-content">
-    <!-- hero with huge animation -->
-    <section class="hero">
+    <!-- HERO (visible only on home) -->
+    <section class="hero" id="heroSection">
       <div class="hero-plants">
         <i class="fas fa-leaf"></i>
         <i class="fas fa-seedling"></i>
@@ -434,133 +295,20 @@
       </div>
     </section>
 
-    <!-- navigation -->
+    <!-- NAVIGATION -->
     <nav class="nav-bar">
-      <a href="#markets"><i class="fas fa-store"></i> Farmers Market</a>
-      <a href="#postharvest"><i class="fas fa-box-open"></i> Post‑harvest</a>
-      <a href="#water"><i class="fas fa-tint"></i> Water management</a>
-      <a href="#knowledge"><i class="fas fa-book-open"></i> IKS</a>
-      <a href="#database"><i class="fas fa-database"></i> Farmer DB</a>
+      <a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a>
+      <a onclick="showPage('markets')"><i class="fas fa-store"></i> Farmers Market</a>
+      <a onclick="showPage('postharvest')"><i class="fas fa-box-open"></i> Post‑harvest</a>
+      <a onclick="showPage('water')"><i class="fas fa-tint"></i> Water management</a>
+      <a onclick="showPage('knowledge')"><i class="fas fa-book-open"></i> IKS</a>
+      <a onclick="showPage('database')"><i class="fas fa-database"></i> Farmer DB</a>
     </nav>
 
-    <!-- main content container -->
-    <div class="container">
-      <!-- leaf divider -->
-      <div class="leaf-divider">
-        <i class="fas fa-leaf"></i>
-        <i class="fas fa-seedling"></i>
-        <i class="fas fa-leaf"></i>
-      </div>
+    <!-- DYNAMIC CONTENT CONTAINER -->
+    <div id="app-container" class="container"></div>
 
-      <!-- MODULES / SOLUTION CARDS -->
-      <div class="modules-grid">
-        <!-- market access -->
-        <div class="module-card" id="markets">
-          <i class="fas fa-store module-icon"></i>
-          <h3>Market access</h3>
-          <p>Connect directly with buyers, cooperatives and local markets. Get fair prices and reduce middlemen. Live buyer requests and price insights for the Vhembe district.</p>
-          <span class="module-badge"><i class="fas fa-arrow-right"></i> Find Buyers</span>
-        </div>
-        <!-- post harvest -->
-        <div class="module-card" id="postharvest">
-          <i class="fas fa-box-open module-icon"></i>
-          <h3>Post‑harvest</h3>
-          <p>Proper harvesting, handling, storage and transport. Step‑by‑step guides to reduce waste and keep produce fresh. Traditional storage tips + modern techniques.</p>
-          <span class="module-badge"><i class="fas fa-leaf"></i> follow instructions to reduce wasted crops </span>
-        </div>
-        <!-- water management -->
-        <div class="module-card" id="water">
-          <i class="fas fa-tint module-icon"></i>
-          <h3>Water management</h3>
-          <p>Smart irrigation advice, rainwater harvesting, and weather forecasts. Simple, low‑cost methods to save water and protect crops during dry spells.</p>
-          <span class="module-badge"><i class="fas fa-cloud-rain"></i> weekly water tips</span>
-        </div>
-        <!-- knowledge sharing -->
-        <div class="module-card" id="knowledge">
-          <i class="fas fa-book-open module-icon"></i>
-          <h3>Knowledge sharing</h3>
-          <p>Modern farming information combined with elders' traditional knowledge. Crop rotation, natural pest control, seed saving — preserved for future generations.</p>
-          <span class="module-badge"><i class="fas fa-users"></i> 24 elder practices</span>
-        </div>
-      </div>
-
-      <!-- DATABASE SECTION: farmer records, market listings etc. -->
-      <section class="db-section" id="database">
-        <div class="db-header">
-          <h2><i class="fas fa-database"></i> Farmer & produce database</h2>
-          <span class="record-count"><i class="fas fa-sync-alt"></i> 6 active records</span>
-        </div>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Farmer / Agent</th>
-                <th>Location</th>
-                <th>Produce</th>
-                <th>Quantity</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> Mpho Nemavhola</td>
-                <td>Tshakhuma</td>
-                <td>Tomatoes</td>
-                <td>320 kg</td>
-                <td><span class="status-badge">Market ready</span></td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> Tshilidzi Mudau</td>
-                <td>Vhembe · Lwamondo</td>
-                <td>Maize</td>
-                <td>1.2 ton</td>
-                <td><span class="status-badge">Storage advice</span></td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-user-tie" style="color:#a5d6a7; margin-right:8px;"></i> Rofhiwa (village agent)</td>
-                <td>Tshakhuma · central</td>
-                <td>—</td>
-                <td>—</td>
-                <td><span class="status-badge">Supporting 7 farmers</span></td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> Nnditsheni Mukwevho</td>
-                <td>Tshakhuma · Tshidzini</td>
-                <td>Spinach</td>
-                <td>150 kg</td>
-                <td><span class="status-badge">Buyer matched</span></td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> Sarah Rambau</td>
-                <td>Vhembe · Sinthumule</td>
-                <td>Butternut</td>
-                <td>480 kg</td>
-                <td><span class="status-badge">In storage</span></td>
-              </tr>
-              <tr>
-                <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> Mulalo Tshikovhi</td>
-                <td>Tshakhuma · Ha‑Masia</td>
-                <td>Dry beans</td>
-                <td>600 kg</td>
-                <td><span class="status-badge">Buyer requested</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #a5d6a7; display: flex; align-items: center; gap: 8px;">
-          <i class="fas fa-seedling"></i> Live data from AgriTrust database — updated daily via village agents.
-        </p>
-      </section>
-
-      <!-- leaf divider again -->
-      <div class="leaf-divider">
-        <i class="fas fa-spa"></i>
-        <i class="fas fa-leaf"></i>
-        <i class="fas fa-seedling"></i>
-      </div>
-    </div>
-
-    <!-- footer -->
+    <!-- FOOTER -->
     <footer>
       <p><i class="fas fa-leaf"></i> AgriTrust — Growing Innovation. Empowering Farmers. Transforming Agriculture. <i class="fas fa-leaf"></i></p>
       <p style="margin-top: 0.8rem; font-size: 0.85rem; opacity: 0.8;">
@@ -569,13 +317,393 @@
     </footer>
   </div>
 
-  <!-- optional tiny script to simulate database connection (no backend) -->
   <script>
-    (function() {
-      // purely a visual demo, but we log that the expert system is active
-      console.log('🌱 AgriTrust expert system — database connection simulated. Ready to serve farmers.');
-      // You can add subtle interactions if needed, but the CSS animations are enough.
-    })();
+    // ---------- GLOBAL DATA ----------
+    let farmers = [
+      { id: 'F001', name: 'Mpho Nemavhola', type: 'farmer', location: 'Tshakhuma', produce: 'Tomatoes', quantity: '320 kg', contact: '072 123 4567' },
+      { id: 'F002', name: 'Tshilidzi Mudau', type: 'farmer', location: 'Vhembe · Lwamondo', produce: 'Maize', quantity: '1.2 ton', contact: '082 987 6543' },
+      { id: 'F003', name: 'Nnditsheni Mukwevho', type: 'farmer', location: 'Tshakhuma · Tshidzini', produce: 'Spinach', quantity: '150 kg', contact: '071 555 1234' },
+      { id: 'F004', name: 'Sarah Rambau', type: 'farmer', location: 'Vhembe · Sinthumule', produce: 'Butternut', quantity: '480 kg', contact: '083 444 7890' },
+      { id: 'F005', name: 'Mulalo Tshikovhi', type: 'farmer', location: 'Tshakhuma · Ha‑Masia', produce: 'Dry beans', quantity: '600 kg', contact: '076 222 3344' },
+    ];
+    let customers = [
+      { id: 'C001', name: 'Thabo Mokoena', type: 'customer', location: 'Thohoyandou', interestedIn: 'Tomatoes, Spinach', contact: '072 111 2233' },
+      { id: 'C002', name: 'Lerato Ndlovu', type: 'customer', location: 'Louis Trichardt', interestedIn: 'Maize, Dry beans', contact: '082 555 6677' },
+      { id: 'C003', name: 'Vusi Maluleke', type: 'customer', location: 'Tshakhuma', interestedIn: 'Butternut, Tomatoes', contact: '071 888 9900' },
+    ];
+    let agents = [
+      { id: 'A001', name: 'Rofhiwa (village agent)', type: 'agent', location: 'Tshakhuma · central', produce: '—', quantity: '—', contact: '072 333 4455' },
+    ];
+
+    // ---------- HELPERS ----------
+    function leafDivider() {
+      return `<div class="leaf-divider"><i class="fas fa-leaf"></i><i class="fas fa-seedling"></i><i class="fas fa-leaf"></i></div>`;
+    }
+
+    // ---------- PAGE RENDERERS ----------
+    function renderHome() {
+      return `
+        ${leafDivider()}
+        <div class="modules-grid">
+          <div class="module-card" onclick="showPage('markets')">
+            <i class="fas fa-store module-icon"></i>
+            <h3>Market access</h3>
+            <p>Connect directly with buyers, cooperatives and local markets. Get fair prices and reduce middlemen. Live buyer requests and price insights for the Vhembe district.</p>
+            <span class="module-badge"><i class="fas fa-arrow-right"></i> Find Buyers</span>
+          </div>
+          <div class="module-card" onclick="showPage('postharvest')">
+            <i class="fas fa-box-open module-icon"></i>
+            <h3>Post‑harvest</h3>
+            <p>Proper harvesting, handling, storage and transport. Step‑by‑step guides to reduce waste and keep produce fresh. Traditional storage tips + modern techniques.</p>
+            <span class="module-badge"><i class="fas fa-leaf"></i> reduce wasted crops</span>
+          </div>
+          <div class="module-card" onclick="showPage('water')">
+            <i class="fas fa-tint module-icon"></i>
+            <h3>Water management</h3>
+            <p>Smart irrigation advice, rainwater harvesting, and weather forecasts. Simple, low‑cost methods to save water and protect crops during dry spells.</p>
+            <span class="module-badge"><i class="fas fa-cloud-rain"></i> weekly water tips</span>
+          </div>
+          <div class="module-card" onclick="showPage('knowledge')">
+            <i class="fas fa-book-open module-icon"></i>
+            <h3>Knowledge sharing</h3>
+            <p>Modern farming information combined with elders' traditional knowledge. Crop rotation, natural pest control, seed saving — preserved for future generations.</p>
+            <span class="module-badge"><i class="fas fa-users"></i> 24 elder practices</span>
+          </div>
+        </div>
+        ${leafDivider()}
+        <section class="db-section" style="margin-top:1rem;">
+          <div class="db-header">
+            <h2><i class="fas fa-database"></i> Farmer & produce database</h2>
+            <span class="record-count"><i class="fas fa-sync-alt"></i> ${farmers.length + customers.length + agents.length} active records</span>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Name / Agent</th><th>Location</th><th>Produce</th><th>Quantity</th><th>Status</th></tr></thead>
+              <tbody>
+                ${farmers.map(f => `
+                  <tr>
+                    <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> ${f.name}</td>
+                    <td>${f.location}</td>
+                    <td>${f.produce}</td>
+                    <td>${f.quantity}</td>
+                    <td><span class="status-badge">Market ready</span></td>
+                  </tr>`).join('')}
+                ${agents.map(a => `
+                  <tr>
+                    <td><i class="fas fa-user-tie" style="color:#a5d6a7; margin-right:8px;"></i> ${a.name}</td>
+                    <td>${a.location}</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><span class="status-badge">Supporting farmers</span></td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #a5d6a7; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-seedling"></i> Live data from AgriTrust database — updated daily via village agents.
+          </p>
+        </section>
+        ${leafDivider()}
+      `;
+    }
+
+    function renderMarkets() {
+      const farmerRows = farmers.map(f => `
+        <tr>
+          <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> ${f.name}</td>
+          <td>${f.location}</td>
+          <td>${f.produce}</td>
+          <td>${f.quantity}</td>
+          <td>${f.contact}</td>
+          <td><span class="status-badge">Available</span></td>
+        </tr>
+      `).join('');
+
+      const customerRows = customers.map(c => `
+        <tr>
+          <td><i class="fas fa-user-tie" style="color:#a5d6a7; margin-right:8px;"></i> ${c.name}</td>
+          <td>${c.location}</td>
+          <td>${c.interestedIn}</td>
+          <td>—</td>
+          <td>${c.contact}</td>
+          <td><span class="status-badge">Buyer</span></td>
+        </tr>
+      `).join('');
+
+      return `
+        <div class="page-header">
+          <h1><i class="fas fa-store"></i> Farmers Market</h1>
+          <p>Connect with local farmers and buyers. Browse produce, register your farm, or find sellers.</p>
+          <span class="back-link" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Back to Home</span>
+        </div>
+        <div class="form-card">
+          <h2><i class="fas fa-plus-circle"></i> Register as Farmer or Customer</h2>
+          <form id="marketForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="regName" placeholder="e.g. John Doe" required>
+              </div>
+              <div class="form-group">
+                <label>I am a</label>
+                <select id="regType" required>
+                  <option value="farmer">Farmer (selling produce)</option>
+                  <option value="customer">Customer (buying produce)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Location</label>
+                <input type="text" id="regLocation" placeholder="Village / Town" required>
+              </div>
+              <div class="form-group">
+                <label>Produce / Interest</label>
+                <input type="text" id="regProduce" placeholder="e.g. Tomatoes, Maize" required>
+              </div>
+              <div class="form-group">
+                <label>Quantity (farmers only)</label>
+                <input type="text" id="regQuantity" placeholder="e.g. 200 kg">
+              </div>
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" id="regContact" placeholder="e.g. 072 123 4567" required>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary"><i class="fas fa-seedling"></i> Register</button>
+          </form>
+        </div>
+        <div class="db-section">
+          <div class="db-header">
+            <h2><i class="fas fa-users"></i> Registered Farmers</h2>
+            <span class="record-count"><i class="fas fa-sync-alt"></i> ${farmers.length} farmers</span>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Farmer</th><th>Location</th><th>Produce</th><th>Quantity</th><th>Contact</th><th>Status</th></tr></thead>
+              <tbody>${farmerRows}</tbody>
+            </table>
+          </div>
+        </div>
+        <div class="db-section">
+          <div class="db-header">
+            <h2><i class="fas fa-shopping-basket"></i> Registered Customers</h2>
+            <span class="record-count"><i class="fas fa-sync-alt"></i> ${customers.length} customers</span>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Customer</th><th>Location</th><th>Interested In</th><th>Quantity</th><th>Contact</th><th>Status</th></tr></thead>
+              <tbody>${customerRows}</tbody>
+            </table>
+          </div>
+        </div>
+        ${leafDivider()}
+      `;
+    }
+
+    function renderPostHarvest() {
+      return `
+        <div class="page-header">
+          <h1><i class="fas fa-box-open"></i> Post‑Harvest Management</h1>
+          <p>Proper harvesting, handling, storage and transport to reduce waste.</p>
+          <span class="back-link" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Back to Home</span>
+        </div>
+        <div class="modules-grid">
+          <div class="module-card">
+            <i class="fas fa-hand-holding-heart module-icon"></i>
+            <h3>Harvesting</h3>
+            <p>Harvest at the right maturity. Use clean, sharp tools. Avoid bruising produce. Harvest during cooler parts of the day.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-box module-icon"></i>
+            <h3>Handling</h3>
+            <p>Handle produce gently. Use clean containers. Sort and grade to remove damaged items. Keep produce shaded.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-warehouse module-icon"></i>
+            <h3>Storage</h3>
+            <p>Store in cool, dry, well-ventilated areas. Use traditional storage methods (e.g. ash, sand) combined with modern techniques.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-truck module-icon"></i>
+            <h3>Transport</h3>
+            <p>Use clean, covered vehicles. Avoid overloading. Transport during cooler hours. Pack produce to prevent movement.</p>
+          </div>
+        </div>
+        ${leafDivider()}
+      `;
+    }
+
+    function renderWater() {
+      return `
+        <div class="page-header">
+          <h1><i class="fas fa-tint"></i> Water Management</h1>
+          <p>Smart irrigation, rainwater harvesting, and weather insights for dry spells.</p>
+          <span class="back-link" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Back to Home</span>
+        </div>
+        <div class="modules-grid">
+          <div class="module-card">
+            <i class="fas fa-cloud-rain module-icon"></i>
+            <h3>Rainwater Harvesting</h3>
+            <p>Install gutters and tanks to capture rainwater. Use mulching to retain soil moisture. Build small check dams.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-faucet module-icon"></i>
+            <h3>Irrigation Tips</h3>
+            <p>Water early morning or late afternoon. Use drip irrigation or soaker hoses. Avoid overhead watering in windy conditions.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-sun module-icon"></i>
+            <h3>Dry Spell Protection</h3>
+            <p>Apply mulch to reduce evaporation. Plant drought-tolerant crops. Use shade nets for sensitive plants.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-chart-line module-icon"></i>
+            <h3>Weather Insights</h3>
+            <p>Check weekly forecasts. Plan planting and harvesting around rain patterns. Keep a simple rain gauge.</p>
+          </div>
+        </div>
+        ${leafDivider()}
+      `;
+    }
+
+    function renderKnowledge() {
+      return `
+        <div class="page-header">
+          <h1><i class="fas fa-book-open"></i> Indigenous Knowledge Systems (IKS)</h1>
+          <p>Traditional farming wisdom combined with modern practices.</p>
+          <span class="back-link" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Back to Home</span>
+        </div>
+        <div class="modules-grid">
+          <div class="module-card">
+            <i class="fas fa-seedling module-icon"></i>
+            <h3>Crop Rotation</h3>
+            <p>Rotate cereals with legumes to restore soil nitrogen. Traditional sequence: maize → beans → sorghum → fallow.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-bug module-icon"></i>
+            <h3>Natural Pest Control</h3>
+            <p>Use neem leaves, wood ash, and marigold plants. Intercrop with repellent plants like garlic and chilli.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-jar module-icon"></i>
+            <h3>Seed Saving</h3>
+            <p>Select healthy plants for seed. Dry seeds thoroughly. Store in clay pots with ash or in sealed containers.</p>
+          </div>
+          <div class="module-card">
+            <i class="fas fa-users module-icon"></i>
+            <h3>Elder Practices</h3>
+            <p>Learn from village elders: planting by moon phases, using kraal manure, and traditional storage pits.</p>
+          </div>
+        </div>
+        ${leafDivider()}
+      `;
+    }
+
+    function renderDatabase() {
+      const allRecords = [...farmers, ...customers, ...agents];
+      const rows = allRecords.map(r => {
+        const icon = r.type === 'farmer' ? 'fa-user-circle' : (r.type === 'customer' ? 'fa-user-tie' : 'fa-user-cog');
+        const color = r.type === 'farmer' ? '#4caf50' : (r.type === 'customer' ? '#a5d6a7' : '#ffd54f');
+        const status = r.type === 'farmer' ? 'Market ready' : (r.type === 'customer' ? 'Buyer' : 'Agent');
+        const produce = r.produce || r.interestedIn || '—';
+        const quantity = r.quantity || '—';
+        return `
+          <tr>
+            <td><i class="fas ${icon}" style="color:${color}; margin-right:8px;"></i> ${r.name}</td>
+            <td>${r.type}</td>
+            <td>${r.location}</td>
+            <td>${produce}</td>
+            <td>${quantity}</td>
+            <td>${r.contact}</td>
+            <td><span class="status-badge">${status}</span></td>
+          </tr>
+        `;
+      }).join('');
+
+      return `
+        <div class="page-header">
+          <h1><i class="fas fa-database"></i> AgriTrust Database</h1>
+          <p>Complete records of all farmers, customers, and village agents.</p>
+          <span class="back-link" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Back to Home</span>
+        </div>
+        <div class="db-section">
+          <div class="db-header">
+            <h2><i class="fas fa-list"></i> All Records</h2>
+            <span class="record-count"><i class="fas fa-sync-alt"></i> ${allRecords.length} total records</span>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th>Name</th><th>Type</th><th>Location</th><th>Produce / Interest</th><th>Quantity</th><th>Contact</th><th>Status</th></tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </div>
+        ${leafDivider()}
+      `;
+    }
+
+    // ---------- NAVIGATION FUNCTION ----------
+    function showPage(page) {
+      const app = document.getElementById('app-container');
+      const hero = document.getElementById('heroSection');
+      
+      // Hide hero on secondary pages
+      if (page === 'home') {
+        hero.style.display = 'flex';
+      } else {
+        hero.style.display = 'none';
+      }
+
+      // Render the selected page
+      switch(page) {
+        case 'home': app.innerHTML = renderHome(); break;
+        case 'markets': app.innerHTML = renderMarkets(); attachMarketForm(); break;
+        case 'postharvest': app.innerHTML = renderPostHarvest(); break;
+        case 'water': app.innerHTML = renderWater(); break;
+        case 'knowledge': app.innerHTML = renderKnowledge(); break;
+        case 'database': app.innerHTML = renderDatabase(); break;
+        default: app.innerHTML = renderHome();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ---------- MARKET FORM HANDLER ----------
+    function attachMarketForm() {
+      const form = document.getElementById('marketForm');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('regName').value.trim();
+        const type = document.getElementById('regType').value;
+        const location = document.getElementById('regLocation').value.trim();
+        const produce = document.getElementById('regProduce').value.trim();
+        const quantity = document.getElementById('regQuantity').value.trim() || '—';
+        const contact = document.getElementById('regContact').value.trim();
+        
+        if (!name || !location || !produce || !contact) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        if (type === 'farmer') {
+          const id = 'F' + String(farmers.length + 1).padStart(3, '0');
+          farmers.push({ id, name, type, location, produce, quantity, contact });
+        } else {
+          const id = 'C' + String(customers.length + 1).padStart(3, '0');
+          customers.push({ id, name, type, location, interestedIn: produce, contact });
+        }
+
+        alert('Registration successful! Thank you for joining AgriTrust.');
+        // Re-render the markets page
+        showPage('markets');
+      });
+    }
+
+    // ---------- INITIALISE ----------
+    document.addEventListener('DOMContentLoaded', function() {
+      showPage('home');
+    });
   </script>
 </body>
 </html>
