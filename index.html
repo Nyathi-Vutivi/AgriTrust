@@ -371,39 +371,6 @@
           </div>
         </div>
         ${leafDivider()}
-        <section class="db-section" style="margin-top:1rem;">
-          <div class="db-header">
-            <h2><i class="fas fa-database"></i> Farmer & produce database</h2>
-            <span class="record-count"><i class="fas fa-sync-alt"></i> ${farmers.length + customers.length + agents.length} active records</span>
-          </div>
-          <div class="table-wrapper">
-            <table>
-              <thead><tr><th>Name / Agent</th><th>Location</th><th>Produce</th><th>Quantity</th><th>Status</th></tr></thead>
-              <tbody>
-                ${farmers.map(f => `
-                  <tr>
-                    <td><i class="fas fa-user-circle" style="color:#4caf50; margin-right:8px;"></i> ${f.name}</td>
-                    <td>${f.location}</td>
-                    <td>${f.produce}</td>
-                    <td>${f.quantity}</td>
-                    <td><span class="status-badge">Market ready</span></td>
-                  </tr>`).join('')}
-                ${agents.map(a => `
-                  <tr>
-                    <td><i class="fas fa-user-tie" style="color:#a5d6a7; margin-right:8px;"></i> ${a.name}</td>
-                    <td>${a.location}</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td><span class="status-badge">Supporting farmers</span></td>
-                  </tr>`).join('')}
-              </tbody>
-            </table>
-          </div>
-          <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #a5d6a7; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-seedling"></i> Live data from AgriTrust database — updated daily via village agents.
-          </p>
-        </section>
-        ${leafDivider()}
       `;
     }
 
@@ -648,14 +615,12 @@
       const app = document.getElementById('app-container');
       const hero = document.getElementById('heroSection');
       
-      // Hide hero on secondary pages
       if (page === 'home') {
         hero.style.display = 'flex';
       } else {
         hero.style.display = 'none';
       }
 
-      // Render the selected page
       switch(page) {
         case 'home': app.innerHTML = renderHome(); break;
         case 'markets': app.innerHTML = renderMarkets(); attachMarketForm(); break;
@@ -695,7 +660,6 @@
         }
 
         alert('Registration successful! Thank you for joining AgriTrust.');
-        // Re-render the markets page
         showPage('markets');
       });
     }
